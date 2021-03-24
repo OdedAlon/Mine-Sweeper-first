@@ -1,0 +1,131 @@
+body {
+    text-align: center;
+    background-color: rgb(158, 232, 245);  
+}
+
+h1 {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-style: italic;
+}
+
+table {
+    position: absolute;
+    top: 300px;
+    margin: auto;
+    background-color: #fff;
+    font-size: 20px;
+}
+
+td {
+    width:25px; 
+    height:25px;
+    text-align: center
+}
+
+td img {
+    width:22px; 
+    height:auto
+}
+
+.shown {
+    background-color: rgba(0, 0, 0, 0.329);
+}
+
+.board {   
+    height: 300px;
+    box-align: center;
+    margin: auto;
+}
+
+.data {
+    box-align: center;
+    margin: 0 auto;
+    max-width:500px;
+    height: 150px;
+    background-color: #fff;
+    font-family: "Lato", sans-serif;
+    font-size: 20px;
+    color: rgb(228, 64, 64); 
+}
+
+#smily {
+    position: absolute;
+    margin: auto;
+    top: 150px;
+    width: 45px; 
+    height: auto;
+    text-align: center;
+    border: 1px solid;
+    border-color: aqua;
+}
+
+#mines {
+    position: absolute;
+    top: 180px;
+    left: 400px;
+    
+}
+
+#stopper {
+    position: absolute;
+    top: 180px;
+    right: 400px;
+
+}
+
+  .container {
+    position: absolute;
+    top: 60px;
+    left: 60px;
+    font-family: "Lato", sans-serif;
+    color: #111;
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+    background-color: #ECECEC;
+    width: auto;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .btn {
+    margin: 15px auto;
+    border: none;
+    padding: 10px 44px;
+    font-size: 20px;
+    position: relative;
+  }
+  .btn::before {
+    transition: all 0.85s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    content: "";
+    width: 50%;
+    height: 100%;
+    background: black;
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+  .btn .btn-text {
+    color: white;
+    mix-blend-mode: difference;
+  }
+  .btn:hover::before {
+    background: black;
+    width: 100%;
+  }
+  .btn.rounded {
+    border-radius: 50px;
+  }
+  .btn.rounded .text-green {
+    color: #00F0B5;
+    mix-blend-mode: difference;
+  }
+  .btn.rounded::before {
+    border-radius: 50px;
+    width: 25%;
+    background: #00F0B5;
+  }
+  .btn.rounded:hover::before {
+    background: #00F0B5;
+    width: 100%;
+  }

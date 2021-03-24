@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/main.css">
+    <title>Mine Sweeper</title>
+</head>
+
+<body onload="initGame()">
+    <h1>Mine Sweeper</h1>
+    <div class="data">
+        <div id="mines"></div>
+        <img id="smily" src="img/smily.png" onclick="initGame()" />
+        <div id="stopper"></div>
+        <div class="container">
+            
+            <button class="btn rounded"><span class="text-green" id="1" onclick="changeLevel(this)">Beginner</span></button>
+            <button class="btn rounded"><span class="text-green" id="2" onclick="changeLevel(this)">Medium</span></button>
+            <button class="btn rounded"><span class="text-green" id="3" onclick="changeLevel(this)">Expert</span></button>
+        </div>
+    </div>
+
+    <div class="board" style="width: 224px"></div>
+
+    <script src="js/utils.js"></script>
+    <script src="js/main.js"></script>
+</body>
+
+</html>
