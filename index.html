@@ -14,6 +14,7 @@
     <div class="data">
         <div id="mines"></div>
         <img id="smily" src="img/smily.png" onclick="initGame()" />
+        
         <div id="bestTime2">The Best Time:</div><div id="bestTimeLevel1"></div><div id="bestTimeLevel2"></div><div id="bestTimeLevel3"></div>
         <div id="stopper"></div>
         <div class="container">
@@ -28,10 +29,12 @@
 
     <div class="lives">03 LIVES left<span></span></div>
 
-    <div class="hints" onclick="giveHint()">03 HINTS left<span></span></div>
-
+    <div class="hints" onclick="giveHint()">03 HINTS left</div>
+    
     <div class="board" style="width: 224px"></div>
-
+    <img id="light1" src="img/light.png" class="light1" onclick="giveHint()"/>
+    <img id="light2" src="img/light.png" class="light2" onclick="giveHint()"/>
+    <img id="light3" src="img/light.png" class="light3" onclick="giveHint()"/>
     <script src="js/utils.js"></script>
     <script src="js/main.js"></script>
 </body>
