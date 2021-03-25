@@ -61,7 +61,9 @@ function resetElements() {
     elLight2.style.display = 'block';
     var elLight3 = document.querySelector('.light3');
     elLight3.src = 'img/light.png';
-    elLight3.style.display = 'block';                        
+    elLight3.style.display = 'block';
+    var elLive = document.querySelector('.live');
+    elLive.src = `img/live3.png`;                        
 }
 
 function changeLevel(elBtn) {
@@ -192,7 +194,6 @@ function cellCliked(event, elCell) {
 
     cell.isShown = true;
     gGame.shownCount++;
-    console.log(gGame.shownCount)
     if (!gGame.isOn) {
         gGame.isOn = true;
         playStopper();
@@ -277,6 +278,8 @@ function updateLives() {
     gGame.lives--;
     var elLives = document.querySelector('.lives');
     elLives.innerText = `0${gGame.lives} LIVES left`;
+    var elLive = document.querySelector('.live');
+    elLive.src = `img/live${gGame.lives}.png`; 
 }
 
 function giveHint() {

@@ -184,10 +184,11 @@ td img {
     color: rgb(228, 64, 64);
 }
 
-.lives span {
-    width: 50;
-    height: 100;
-    color: blue;
+.live {
+    position: absolute;
+    left: 18%;
+    bottom: 240px;
+    width: 40px;
 }
 
 .hints {
