@@ -14,14 +14,21 @@
     <div class="data">
         <div id="mines"></div>
         <img id="smily" src="img/smily.png" onclick="initGame()" />
+        <div id="bestTime2">The Best Time:</div><div id="bestTimeLevel1"></div><div id="bestTimeLevel2"></div><div id="bestTimeLevel3"></div>
         <div id="stopper"></div>
         <div class="container">
-            
-            <button class="btn rounded"><span class="text-green" id="1" onclick="changeLevel(this)">Beginner</span></button>
-            <button class="btn rounded"><span class="text-green" id="2" onclick="changeLevel(this)">Medium</span></button>
-            <button class="btn rounded"><span class="text-green" id="3" onclick="changeLevel(this)">Expert</span></button>
+            <button class="btn rounded"><span class="text-green" id="1"
+                    onclick="changeLevel(this)">Beginner</span></button>
+            <button class="btn rounded"><span class="text-green" id="2"
+                    onclick="changeLevel(this)">Medium</span></button>
+            <button class="btn rounded"><span class="text-green" id="3"
+                    onclick="changeLevel(this)">Expert</span></button>
         </div>
     </div>
+
+    <div class="lives">03 LIVES left<span></span></div>
+
+    <div class="hints" onclick="giveHint()">03 HINTS left<span></span></div>
 
     <div class="board" style="width: 224px"></div>
 

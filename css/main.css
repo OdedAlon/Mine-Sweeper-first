@@ -1,6 +1,6 @@
 body {
     text-align: center;
-    background-color: rgb(158, 232, 245);  
+    background-color: rgb(14, 139, 161);  
 }
 
 h1 {
@@ -31,6 +31,10 @@ td img {
     background-color: rgba(0, 0, 0, 0.329);
 }
 
+.boom {
+    background-color: rgb(241, 13, 13);
+}
+
 .board {   
     height: 300px;
     box-align: center;
@@ -40,11 +44,12 @@ td img {
 .data {
     box-align: center;
     margin: 0 auto;
-    max-width:500px;
+    max-width:900px;
     height: 150px;
     background-color: #fff;
     font-family: "Lato", sans-serif;
     font-size: 20px;
+    font-style: bold;
     color: rgb(228, 64, 64); 
 }
 
@@ -62,15 +67,41 @@ td img {
 #mines {
     position: absolute;
     top: 180px;
-    left: 400px;
+    left: 600px;
     
 }
 
 #stopper {
     position: absolute;
     top: 180px;
-    right: 400px;
+    left: 1220px;
+}
 
+#bestTimeLevel1 {
+  display: block;
+  position: absolute;
+  top: 120px;
+  left: 1280px;
+}
+
+#bestTimeLevel2 {
+  display: none;
+  position: absolute;
+  top: 120px;
+  left: 1280px;
+}
+
+#bestTimeLevel3 {
+  display: none;
+  position: absolute;
+  top: 120px;
+  left: 1280px;
+}
+
+#bestTime2 {
+  position: absolute;
+  top: 120px;
+  left: 1134px;
 }
 
   .container {
@@ -128,4 +159,36 @@ td img {
   .btn.rounded:hover::before {
     background: #00F0B5;
     width: 100%;
+  }
+
+  .lives {
+    position: absolute;
+    width: 50;
+    height: 100;
+    background: #ECECEC;
+    bottom: 200px;
+    left: 80px;
+    font-family: "Lato", sans-serif;
+    font-size: 20px;
+    font-style: bold;
+    color: rgb(228, 64, 64);
+  }
+
+  .lives span {
+    width: 50;
+    height: 100;
+    color: blue;
+  }
+
+  .hints {
+    position: absolute;
+    width: 50;
+    height: 100;
+    background: #ECECEC;
+    bottom: 200px;
+    right: 80px;
+    font-family: "Lato", sans-serif;
+    font-size: 20px;
+    font-style: bold;
+    color: rgb(228, 64, 64);
   }
