@@ -55,10 +55,13 @@ function resetElements() {
     elHints.innerText = `0${gGame.hints} HINTS left`;
     var elLight1 = document.querySelector('.light1');
     elLight1.src = 'img/light.png';
+    elLight1.style.display = 'block';
     var elLight2 = document.querySelector('.light2');
     elLight2.src = 'img/light.png';
+    elLight2.style.display = 'block';
     var elLight3 = document.querySelector('.light3');
-    elLight3.src = 'img/light.png';                        
+    elLight3.src = 'img/light.png';
+    elLight3.style.display = 'block';                        
 }
 
 function changeLevel(elBtn) {
