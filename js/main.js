@@ -22,7 +22,8 @@ function initGame() {
         markedCount: 0,
         secsPassed: 0,
         lives: 3,
-        hints: 3
+        hints: 3,
+        safeClicks: 3
     };
     gBoard = buildBoard();
     gHintsMode = false;
@@ -50,9 +51,9 @@ function resetElements() {
     var elImg = document.querySelector('img');
     elImg.src = "img/smily.png";
     var elLives = document.querySelector('.lives');
-    elLives.innerText = `0${gGame.lives} LIVES left`;
+    elLives.innerText = `- 0${gGame.lives} LIVES left -`;
     var elHints = document.querySelector('.hints');
-    elHints.innerText = `0${gGame.hints} HINTS left`;
+    elHints.innerText = `- 0${gGame.hints} HINTS left -`;
     var elLight1 = document.querySelector('.light1');
     elLight1.src = 'img/light.png';
     elLight1.style.display = 'block';
@@ -63,7 +64,9 @@ function resetElements() {
     elLight3.src = 'img/light.png';
     elLight3.style.display = 'block';
     var elLive = document.querySelector('.live');
-    elLive.src = `img/live3.png`;                        
+    elLive.src = `img/live3.png`;
+    var elHints = document.querySelector('.safeclicks');
+    elHints.innerText = `- 0${gGame.safeClicks} SAFE CLICKS left -`;                        
 }
 
 function changeLevel(elBtn) {
@@ -277,13 +280,14 @@ function victory() {
 function updateLives() {
     gGame.lives--;
     var elLives = document.querySelector('.lives');
-    elLives.innerText = `0${gGame.lives} LIVES left`;
+    elLives.innerText = `- 0${gGame.lives} LIVES left -`;
     var elLive = document.querySelector('.live');
     elLive.src = `img/live${gGame.lives}.png`; 
 }
 
 function giveHint() {
     if (!gGame.isOn) return;
+    if (!gGame.hints) return;
     gHintsMode = true;
     gElLight = document.querySelector(`.light${gGame.hints}`);
     gElLight.src = 'img/lighton.png';
@@ -303,6 +307,7 @@ function showHint(elCell) {
             if (j < 0 || j > gLevel.SIZE - 1) continue;
             if (i === cellIdx.i && j === cellIdx.j) continue;
             if (gBoard[i][j].isShown) {
+                gHintsMode = false;
                 gElLight.src = 'img/light.png';
                 return;
             }
@@ -326,7 +331,7 @@ function showHint(elCell) {
     gGame.hints--;
     gElLight.style.display = 'none';
     var elHints = document.querySelector('.hints');
-    elHints.innerText = `0${gGame.hints} HINTS left`;
+    elHints.innerText = `- 0${gGame.hints} HINTS left -`;
     setTimeout(hideHint, 1000, elCell);
 }
 
@@ -342,6 +347,37 @@ function hideHint(elCell) {
         }
     }
     gHintsMode = false;
+}
+
+function markSafeClick() {
+    if (!gGame.isOn) return;
+    if (!gGame.safeClicks) return;
+    var emptyCells = [];
+    var emptyCell = {};
+    var rndCellsIdx = -1; 
+    for (var i = 0; i < gLevel.SIZE; i++) {
+        for (var j = 0; j < gLevel.SIZE; j++) {
+            if (!gBoard[i][j].isShown && !gBoard[i][j].isMine) {
+                var currElCell = document.getElementById(`cell-${i}-${j}`);
+                var cellIdx = getCellIdx(currElCell.id)
+                emptyCells.push(cellIdx);
+            }
+        }
+    }
+    rndCellsIdx = getRandomIntInclusive(0, emptyCells.length - 1); 
+    emptyCell = emptyCells[rndCellsIdx];
+    var elCell = document.getElementById(`cell-${emptyCell.i}-${emptyCell.j}`);
+    var strHTML = `<td id="cell-${emptyCell.i}-${emptyCell.j}" class="shown" onmousedown="cellCliked(event, this)">✔</td>`;
+    elCell.innerHTML = strHTML;
+    gGame.safeClicks--;
+    var elHints = document.querySelector('.safeclicks');
+    elHints.innerText = `- 0${gGame.safeClicks} SAFE CLICKS left -`;
+    setTimeout(hideSafeClick, 3000, elCell, emptyCell.i, emptyCell.j);
+}
+
+function hideSafeClick(elCell, i, j) {
+    var strHTML = `<td id="cell-${i}-${j}" class="shown" onmousedown="cellCliked(event, this)"></td>`;
+    elCell.innerHTML = strHTML;
 }
 
 function gameOver() {

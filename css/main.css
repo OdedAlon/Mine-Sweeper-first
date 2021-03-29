@@ -48,7 +48,7 @@ td img {
 .data {
     box-align: center;
     margin: 0 auto;
-    max-width:900px;
+    max-width:950px;
     height: 150px;
     background-color: #fff; 
     border-style: double;
@@ -175,13 +175,14 @@ td img {
     position: absolute;
     width: 50;
     height: 100;
-    background: #ECECEC;
+    background: #00F0B5;
     bottom: 200px;
-    left: 15%;
+    left: 13.5%;
     font-family: "Lato", sans-serif;
     font-size: 30px;
     font-style: bold;
     color: rgb(228, 64, 64);
+    
 }
 
 .live {
@@ -191,17 +192,36 @@ td img {
     width: 40px;
 }
 
+.safeclicks {
+  position: absolute;
+  width: 500;
+  height: 500;
+  background: #00F0B5;
+  bottom: 390px;
+  right: 12%;
+  font-family: "Lato", sans-serif;
+  font-size: 30px;
+  font-style: bold;
+  color: rgb(228, 64, 64);
+  border-width: 5px;
+  border-style: outset;
+  border-radius: 50px;
+}
+
 .hints {
     position: absolute;
     width: 500;
     height: 500;
-    background: #ECECEC;
+    background: #00F0B5;
     bottom: 200px;
-    right: 15%;
+    right: 14%;
     font-family: "Lato", sans-serif;
     font-size: 30px;
     font-style: bold;
     color: rgb(228, 64, 64);
+    border-width: 5px;
+    border-style: outset;
+    border-radius: 50px;
 }
 
 .light1 {
