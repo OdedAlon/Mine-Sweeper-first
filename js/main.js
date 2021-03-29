@@ -35,25 +35,27 @@ function initGame() {
     
     switch (gLevel.SIZE) {
         case 4:                                            
-            document.getElementById("bestTimeLevel1").innerHTML = localStorage.bestTimeLevel1;    
+            document.querySelector('.bestTimeLevel1').innerHTML = localStorage.bestTimeLevel1;    
         case 8:
-            document.getElementById("bestTimeLevel2").innerHTML = localStorage.bestTimeLevel2;    
+            document.querySelector('.bestTimeLevel2').innerHTML = localStorage.bestTimeLevel2;    
             break;
         case 12:
-            document.getElementById("bestTimeLevel3").innerHTML = localStorage.bestTimeLevel3;    
+            document.querySelector('.bestTimeLevel3').innerHTML = localStorage.bestTimeLevel3;    
             break;
     }
 }
 
 function resetElements() {
-    mines.innerText = `Mines: ${gLevel.MINES - gGame.markedCount}`;
-    stopper.innerText = 'Time:';
+    var elMines = document.querySelector('.mines');
+    elMines.innerText = `Mines: ${gLevel.MINES - gGame.markedCount}`;
+    var elStopper = document.querySelector('.stopper');
+    elStopper.innerText = 'Time:';
     var elImg = document.querySelector('img');
     elImg.src = "img/smily.png";
     var elLives = document.querySelector('.lives');
     elLives.innerText = `- 0${gGame.lives} LIVES left -`;
     var elHints = document.querySelector('.hints');
-    elHints.innerText = `- 0${gGame.hints} HINTS left -`;
+    elHints.innerText = `0${gGame.hints} HINTS left`;
     var elLight1 = document.querySelector('.light1');
     elLight1.src = 'img/light.png';
     elLight1.style.display = 'block';
@@ -65,8 +67,8 @@ function resetElements() {
     elLight3.style.display = 'block';
     var elLive = document.querySelector('.live');
     elLive.src = `img/live3.png`;
-    var elHints = document.querySelector('.safeclicks');
-    elHints.innerText = `- 0${gGame.safeClicks} SAFE CLICKS left -`;                        
+    var elSafeClicks = document.querySelector('.safeclicks');
+    elSafeClicks.innerText = `0${gGame.safeClicks} SAFE CLICKS left`;                        
 }
 
 function changeLevel(elBtn) {
@@ -76,9 +78,9 @@ function changeLevel(elBtn) {
             gLevel.SIZE = 4;
             gLevel.MINES = 2;
             elBoard.style.width = '224px';
-            var elBestTimeLevel1 = document.getElementById('bestTimeLevel1');
-            var elBestTimeLevel2 = document.getElementById('bestTimeLevel2');
-            var elBestTimeLevel3 = document.getElementById('bestTimeLevel3');
+            var elBestTimeLevel1 = document.querySelector('.bestTimeLevel1');
+            var elBestTimeLevel2 = document.querySelector('.bestTimeLevel2');
+            var elBestTimeLevel3 = document.querySelector('.bestTimeLevel3');
             elBestTimeLevel1.style.display = 'block';
             elBestTimeLevel2.style.display = 'none';
             elBestTimeLevel3.style.display = 'none';
@@ -87,9 +89,9 @@ function changeLevel(elBtn) {
             gLevel.SIZE = 8;
             gLevel.MINES = 12;
             elBoard.style.width = '436px';
-            var elBestTimeLevel1 = document.getElementById('bestTimeLevel1');
-            var elBestTimeLevel2 = document.getElementById('bestTimeLevel2');
-            var elBestTimeLevel3 = document.getElementById('bestTimeLevel3');
+            var elBestTimeLevel1 = document.querySelector('.bestTimeLevel1');
+            var elBestTimeLevel2 = document.querySelector('.bestTimeLevel2');
+            var elBestTimeLevel3 = document.querySelector('.bestTimeLevel3');
             elBestTimeLevel1.style.display = 'none';
             elBestTimeLevel2.style.display = 'block';
             elBestTimeLevel3.style.display = 'none';
@@ -98,12 +100,12 @@ function changeLevel(elBtn) {
             gLevel.SIZE = 12;
             gLevel.MINES = 30;
             elBoard.style.width = '648px';
-            var elBestTimeLevel1 = document.getElementById('bestTimeLevel1');
-            var elBestTimeLevel2 = document.getElementById('bestTimeLevel2');
-            var elBestTimeLevel3 = document.getElementById('bestTimeLevel3');
+            var elBestTimeLevel1 = document.querySelector('.bestTimeLevel1');
+            var elBestTimeLevel2 = document.querySelector('.bestTimeLevel2');
+            var elBestTimeLevel3 = document.querySelector('.bestTimeLevel3');
             elBestTimeLevel1.style.display = 'none';
             elBestTimeLevel2.style.display = 'none';
-            elBestTimeLevel3.style.display = 'block';
+            if (localStorage.bestTimeLevel3) elBestTimeLevel3.style.display = 'block';
             break;
     }
     initGame();
@@ -208,7 +210,8 @@ function cellCliked(event, elCell) {
     if (cell.isMine) {
         gGame.shownCount--;
         gGame.markedCount++
-        mines.innerText = `Mines: ${gLevel.MINES - gGame.markedCount}`;
+        var elMines = document.querySelector('.mines');
+        elMines.innerText = `Mines: ${gLevel.MINES - gGame.markedCount}`;
         if (gGame.lives) {
             updateLives();
             renderBoard;
@@ -331,7 +334,7 @@ function showHint(elCell) {
     gGame.hints--;
     gElLight.style.display = 'none';
     var elHints = document.querySelector('.hints');
-    elHints.innerText = `- 0${gGame.hints} HINTS left -`;
+    elHints.innerText = `0${gGame.hints} HINTS left`;
     setTimeout(hideHint, 1000, elCell);
 }
 
@@ -370,8 +373,8 @@ function markSafeClick() {
     var strHTML = `<td id="cell-${emptyCell.i}-${emptyCell.j}" class="shown" onmousedown="cellCliked(event, this)">✔</td>`;
     elCell.innerHTML = strHTML;
     gGame.safeClicks--;
-    var elHints = document.querySelector('.safeclicks');
-    elHints.innerText = `- 0${gGame.safeClicks} SAFE CLICKS left -`;
+    var elSafeClicks = document.querySelector('.safeclicks');
+    elSafeClicks.innerText = `0${gGame.safeClicks} SAFE CLICKS left`;
     setTimeout(hideSafeClick, 3000, elCell, emptyCell.i, emptyCell.j);
 }
 
@@ -402,9 +405,9 @@ function getTime() {
     var now = new Date();
     var millisec = now - gTime;
     var printTime;
-    if (millisec < 1000) printTime = '0.' + millisec;
-    else printTime = (millisec / 1000);
-    stopper.innerText = `Time : ${printTime}`;
+    printTime = Math.floor(millisec / 1000);
+    var elStopper = document.querySelector('.stopper');
+    elStopper.innerText = `Time : ${printTime}`;
     gGame.secsPassed = printTime;
 }
 
@@ -412,11 +415,13 @@ function cellMarked(cell) {
     if (!cell.isMarked) {
         cell.isMarked = true;
         gGame.markedCount++;
-        mines.innerText = `Mines: ${gLevel.MINES - gGame.markedCount}`;
+        var elMines = document.querySelector('.mines');
+        elMines.innerText = `Mines: ${gLevel.MINES - gGame.markedCount}`;
     } else {
         cell.isMarked = false;
         gGame.markedCount--;
-        mines.innerText = `Mines: ${gLevel.MINES - gGame.markedCount}`;
+        var elMines = document.querySelector('.mines');
+        elMines.innerText = `Mines: ${gLevel.MINES - gGame.markedCount}`;
     }
     checkGameOver();
     renderBoard(gBoard);

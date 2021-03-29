@@ -1,22 +1,39 @@
 body {
-    text-align: center;
-    background-image: url(https://www.idf.il/media/52497/whatsapp_image_2019-05-25_at_204749.jpeg);
-    background-repeat: no-repeat;
-    background-position: 50% 50%;
-     /* rgb(14, 139, 161);    */
+  text-align: center;
+  background-image: url(../img/minesbg.jpeg);
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
 }
 
 h1 {
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    font-style: italic;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-style: italic;
+  font-size: 50px
+  color: #444444;
+  /* color: #FFFFFF;
+background: #FFFFFF; */
+text-shadow: 1px 3px 0 #969696, 1px 13px 5px #aba8a8;
+}
+
+.data {
+    box-align: center;
+    margin: auto;
+    max-width:920px;
+    height: 150px;
+    background-color: black; 
+    font-family: "Lato", sans-serif;
+    font-size: 24px;
+    font-style: bold;
+    -webkit-box-shadow: 5px 5px 15px 5px #000000; 
+    box-shadow: 5px 5px 15px 5px #000000; 
 }
 
 table {
-    position: absolute;
-    top: 300px;
-    margin: auto;
-    background-color: #fff;
-    font-size: 20px;
+  position: absolute;
+  top: 300px;
+  margin: auto;
+  background-color: #fff;
+  font-size: 20px;
 }
 
 td {
@@ -45,75 +62,75 @@ td img {
     ;
 }
 
-.data {
-    box-align: center;
-    margin: 0 auto;
-    max-width:950px;
-    height: 150px;
-    background-color: #fff; 
-    border-style: double;
-    font-family: "Lato", sans-serif;
-    font-size: 24px;
-    font-style: bold;
-    color: rgb(228, 64, 64); 
-}
 
-#smily {
+.smily {
     position: absolute;
-    left: 48%;
+    left: 47%;
     margin: auto;
-    top: 150px;
-    width: 60px; 
+    top: 120px;
+    width: 100px; 
     height: auto;
     text-align: center;
     border: 1px solid;
     border-color: rgb(228, 64, 64);
 }
 
-#mines {
+.mines {
     position: absolute;
     top: 180px;
     left: 30%;
     font-family: "Lato", sans-serif;
     font-size: 24px;
     font-style: bold;
-    
+    color: #FFFFFF;
+    text-shadow: 0 0 5px #FFF, 0 0 10px #FFF, 0 0 15px #FFF, 0 0 20px #49ff18, 0 0 30px #49FF18, 0 0 40px #49FF18, 0 0 55px #49FF18, 0 0 75px #49ff18;
 }
 
-#stopper {
+.stopper {
     position: absolute;
     top: 180px;
-    left: 66%;
-}
+    left: 61.9%;
+    color: #FFFFFF;
+    text-shadow: 0 0 5px #FFF, 0 0 10px #FFF, 0 0 15px #FFF, 0 0 20px #49ff18, 0 0 30px #49FF18, 0 0 40px #49FF18, 0 0 55px #49FF18, 0 0 75px #49ff18;   
+  }
 
-#bestTimeLevel1 {
+.bestTimeLevel1 {
   display: block;
   position: absolute;
-  top: 140px;
-  left: 64%;
+  top: 110px;
+  left: 70%;
+  color: #FFFFFF;
+  text-shadow: 0 0 5px #FFF, 0 0 10px #FFF, 0 0 15px #FFF, 0 0 20px #49ff18, 0 0 30px #49FF18, 0 0 40px #49FF18, 0 0 55px #49FF18, 0 0 75px #49ff18;
 }
 
-#bestTimeLevel2 {
+.bestTimeLevel2 {
   display: none;
   position: absolute;
-  top: 140px;
-  left: 64%;
+  top: 110px;
+  left: 70%;
+  color: #FFFFFF;
+  text-shadow: 0 0 5px #FFF, 0 0 10px #FFF, 0 0 15px #FFF, 0 0 20px #49ff18, 0 0 30px #49FF18, 0 0 40px #49FF18, 0 0 55px #49FF18, 0 0 75px #49ff18;
 }
 
-#bestTimeLevel3 {
+.bestTimeLevel3 {
   display: none;
   position: absolute;
-  top: 140px;
-  left: 64%;
+  top: 110px;
+  left: 70%;
+  color: #FFFFFF;
+  text-shadow: 0 0 5px #FFF, 0 0 10px #FFF, 0 0 15px #FFF, 0 0 20px #49ff18, 0 0 30px #49FF18, 0 0 40px #49FF18, 0 0 55px #49FF18, 0 0 75px #49ff18;
 }
 
-#bestTime2 {
+.bestTimeHeader {
   position: absolute;
   top: 110px;
   left: 61.5%;
+  color: #FFFFFF;
+  text-shadow: 0 0 5px #FFF, 0 0 10px #FFF, 0 0 15px #FFF, 0 0 20px #49ff18, 0 0 30px #49FF18, 0 0 40px #49FF18, 0 0 55px #49FF18, 0 0 75px #49ff18;
+
 }
 
-.container {
+.levels {
     position: absolute;
     top: 60px;
     left: 15%;
@@ -122,10 +139,12 @@ td img {
     align-items: center;
     align-content: center;
     justify-content: center;
-    background-color: #ECECEC;
+    background-color: black;
     width: auto;
     display: flex;
     flex-direction: column;
+    -webkit-box-shadow: 5px 5px 15px 5px #000000; 
+    box-shadow: 5px 5px 15px 5px #000000; 
 }
   
 .btn {
@@ -146,14 +165,7 @@ td img {
     top: 0;
     left: 0;
   }
-  .btn .btn-text {
-    color: white;
-    mix-blend-mode: difference;
-  }
-  .btn:hover::before {
-    background: black;
-    width: 100%;
-  }
+  
   .btn.rounded {
     border-radius: 50px;
   }
@@ -175,11 +187,13 @@ td img {
     position: absolute;
     width: 50;
     height: 100;
+    display: block;
     background: #00F0B5;
     bottom: 200px;
     left: 13.5%;
-    font-family: "Lato", sans-serif;
+    font-family: Impact, Charcoal, sans-serif;
     font-size: 30px;
+    letter-spacing: 1px;
     font-style: bold;
     color: rgb(228, 64, 64);
     
@@ -187,9 +201,10 @@ td img {
 
 .live {
     position: absolute;
-    left: 18%;
+    left: 17.5%;
     bottom: 240px;
     width: 40px;
+    Transition: 2s;
 }
 
 .safeclicks {
@@ -199,8 +214,9 @@ td img {
   background: #00F0B5;
   bottom: 390px;
   right: 12%;
-  font-family: "Lato", sans-serif;
+  font-family: impact;
   font-size: 30px;
+  letter-spacing: 1px;
   font-style: bold;
   color: rgb(228, 64, 64);
   border-width: 5px;
@@ -215,8 +231,9 @@ td img {
     background: #00F0B5;
     bottom: 200px;
     right: 14%;
-    font-family: "Lato", sans-serif;
+    font-family: impact;
     font-size: 30px;
+    letter-spacing: 1px;
     font-style: bold;
     color: rgb(228, 64, 64);
     border-width: 5px;
@@ -228,7 +245,7 @@ td img {
     position: absolute;
     display: block;
     bottom: 260px;
-    right: 21.5%;
+    right: 20.5%;
     width: 60px; 
     height:auto
 }
@@ -237,7 +254,7 @@ td img {
   position: absolute;
   display: block;
   bottom: 260px;
-  right: 18.5%;
+  right: 17.5%;
   width: 60px; 
   height:auto
 }
@@ -246,7 +263,7 @@ td img {
   position: absolute;
   display: block;
   bottom: 260px;
-  right: 15.5%;
+  right: 14.5%;
   width: 60px; 
   height:auto
 }
